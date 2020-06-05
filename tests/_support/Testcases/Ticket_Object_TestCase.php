@@ -2,14 +2,12 @@
 
 namespace Tribe\Tickets\Test\Testcases;
 
-use Tribe\Events\Test\Factories\Event;
 use Tribe\Tickets\Test\Commerce\Attendee_Maker as Attendee_Maker;
 use Tribe\Tickets\Test\Commerce\PayPal\Ticket_Maker as PayPal_Ticket_Maker;
 use Tribe\Tickets\Test\Commerce\RSVP\Ticket_Maker as RSVP_Ticket_Maker;
 use Tribe\Tickets\Test\Commerce\Test_Case;
 use Tribe__Date_Utils as Date_Utils;
 use Tribe__Tickets__Commerce__PayPal__Main as PayPal;
-use Tribe__Tickets__Data_API as Data_API;
 use Tribe__Tickets__Ticket_Object as RSVP;
 use Tribe__Tickets__Ticket_Object as Ticket_Object;
 
@@ -26,7 +24,6 @@ class Ticket_Object_TestCase extends Test_Case {
 	protected $later_date = 0;
 
 	public function setUp() {
-		// before
 		parent::setUp();
 
 		$GLOBALS['post'] = null;
@@ -35,34 +32,9 @@ class Ticket_Object_TestCase extends Test_Case {
 
 		update_option( 'timezone_string', $this->timezone );
 
-		// your set up methods here
-		$this->factory()->event = new Event();
-
 		$this->earlier_date = strtotime( '-3 hours' );
 		$this->now_date     = time();
 		$this->later_date   = strtotime( '+3 hours' );
-
-		// Enable post as ticket type.
-		add_filter( 'tribe_tickets_post_types', static function () {
-			return [
-				'post',
-				'tribe_events',
-			];
-		} );
-
-		// Enable Tribe Commerce.
-		add_filter( 'tribe_tickets_commerce_paypal_is_active', '__return_true' );
-		add_filter( 'tribe_tickets_get_modules', function ( $modules ) {
-			/** @var \Tribe__Tickets__Commerce__PayPal__Main $paypal */
-			$paypal = tribe( 'tickets.commerce.paypal' );
-
-			$modules['Tribe__Tickets__Commerce__PayPal__Main'] = $paypal->plugin_name;
-
-			return $modules;
-		} );
-
-		// Reset Data_API object so it sees Tribe Commerce.
-		tribe_singleton( 'tickets.data_api', new Data_API );
 	}
 
 	public function tearDown() {
