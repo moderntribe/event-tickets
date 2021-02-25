@@ -2,13 +2,14 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { InnerBlocks } from '@wordpress/editor';
 
 /**
  * Internal dependencies
  */
+import { wpEditor } from '@moderntribe/common/utils/globals';
 import { Tickets as TicketsIcon } from '@moderntribe/tickets/icons';
 import Ticket from './container';
+const { InnerBlocks } = wpEditor;
 
 export default {
 	id: 'tickets-item',

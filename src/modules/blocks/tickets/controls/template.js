@@ -10,12 +10,13 @@ import { noop } from 'lodash';
  */
 import { PanelBody, PanelRow } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { InspectorControls } from '@wordpress/editor';
 
 /**
  * Internal dependencies
  */
+import { wpEditor } from '@moderntribe/common/utils/globals';
 import './style.pcss';
+const { InspectorControls } = wpEditor;
 
 const message = __(
 	'It looks like you have multiple ecommerce plugins active. We recommend running only one at a time. However, if you need to run multiple, please select which one to use to sell tickets for this event. ',

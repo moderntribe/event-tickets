@@ -14,13 +14,14 @@ import {
 	ToggleControl,
 	PanelBody,
 } from '@wordpress/components';
-import { InspectorControls } from '@wordpress/editor';
 
 /**
  * Internal dependencies
  */
+import { wpEditor } from '@moderntribe/common/utils/globals';
 import { AttendeesGravatar } from '@moderntribe/tickets/icons';
 import './style.pcss';
+const { InspectorControls } = wpEditor;
 
 /**
  * Module Code

@@ -8,17 +8,18 @@ import classNames from 'classnames';
 /**
  * Wordpress dependencies
  */
-import { InnerBlocks } from '@wordpress/editor';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
+import { wpEditor } from '@moderntribe/common/utils/globals';
 import Availability from '../availability/container';
 import { InactiveBlock } from '@moderntribe/tickets/elements';
 import { LAYOUT } from '@moderntribe/tickets/elements/inactive-block/element';
 import { TicketInactive } from '@moderntribe/tickets/icons';
 import './style.pcss';
+const { InnerBlocks } = wpEditor;
 
 const TicketsOverlay = () => <div className="tribe-editor__tickets__overlay" />;
 

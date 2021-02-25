@@ -3,11 +3,10 @@
  */
 import { __ } from '@wordpress/i18n';
 
-import { InnerBlocks } from '@wordpress/editor';
-
 /**
  * Internal dependencies
  */
+import { wpEditor } from '@moderntribe/common/utils/globals';
 import { Tickets as TicketsIcon } from '@moderntribe/tickets/icons';
 import {
 	KEY_TICKET_HEADER,
@@ -16,6 +15,7 @@ import {
 	KEY_TICKETS_LIST,
 } from '@moderntribe/tickets/data/utils';
 import Tickets from './container';
+const { InnerBlocks } = wpEditor;
 
 /**
  * Module Code
