@@ -182,7 +182,7 @@ Check out our extensive [knowledgebase](https://evnt.is/18wm) for articles on us
 
 = [5.1.6] TBD =
 
-
+* Fix - Prevent Attendees with HTML entities from exporting broken. [ETP-730]
 
 = [5.1.5] 2021-06-09 =
 
